@@ -1,0 +1,19 @@
+if(root==null){
+            return 0;
+        }
+        int sum=0;
+        //check if it is in range
+        if(root.val>=low && root.val<=high){
+            sum+=root.val;
+        }
+        //after addition, let's decide where to move
+        if(root.val>low){
+            //if root greater than low, move to left for smaller values, and add
+            sum+=rangeSumBST(root.left,low,high);
+        }
+        if(root.val<high){
+            //root is less than high, so we will move to right for higher values, add
+            sum+=rangeSumBST(root.right,low,high);
+        }
+        return sum;
+    }
