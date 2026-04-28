@@ -1,0 +1,8 @@
+public int maxDepth(Node root){
+if(root==null){
+return 0;    //check if root is null or not
+}
+int lH=maxDepth(root.left);  //get height of the left subtree
+int rH=maxDepth(root.right); //get height of the right subtree
+return Math.max(lH,rH)+1;  //return the maximum height
+}
