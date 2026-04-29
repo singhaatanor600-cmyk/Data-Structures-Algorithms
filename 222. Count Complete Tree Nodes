@@ -1,0 +1,9 @@
+public int countNodes(TreeNode root) {
+     if(root==null){
+        return 0;
+     }   //no nodes
+     if(root.left==null && root.right==null){
+        return 1;
+     } //only one node
+     return 1+countNodes(root.left)+countNodes(root.right);
+    } //count all nodes left and right, and finally also the root node too, so add 1
