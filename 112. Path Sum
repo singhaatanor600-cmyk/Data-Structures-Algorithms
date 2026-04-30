@@ -1,0 +1,24 @@
+public boolean hasPathSum(TreeNode root, int targetSum) {
+       if(root==null){
+        return false;
+       } 
+       if(root.left==null && root.right==null){
+        return targetSum==root.val;
+       }
+       return hasPathSum(root.left,targetSum-root.val) || hasPathSum(root.right,targetSum-root.val);
+
+    }
+
+// what happens here is, check if root is null. if not, then check if it has no child nodes. if so, check if target equals root's value, return it if true. else, 
+//move to left and right, and finally return true if either subtree contains target
+    5
+   / \
+  4   8
+ /   / \
+11  13  4
+if TargetSum=22
+Start at root (5). Remaining = 22 - 5 = 17.
+Go left (4). Remaining = 17 - 4 = 13.
+Go left (11). Remaining = 13 - 11 = 2.
+Go left (7). Remaining = 2 - 7 = -5 → not valid.
+Go right (2). Remaining = 2 - 2 = 0 → leaf reached with exact sum
