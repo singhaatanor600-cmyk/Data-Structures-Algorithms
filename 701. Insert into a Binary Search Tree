@@ -1,0 +1,15 @@
+ public TreeNode insertIntoBST(TreeNode root, int val) {
+        if(root==null){
+            return new TreeNode(val);
+        }
+        if(val<root.val){
+        root.left=insertIntoBST(root.left, val);
+        }
+        if(val>root.val){
+        root.right=insertIntoBST(root.right,val);
+        }
+        return root;
+    }
+
+//the idea is, if root none, return the new node. else check the key value, compare to the root value, and insert in
+//right or left accordingly
